@@ -1,95 +1,153 @@
-/*
-  BÀI TẬP: VALIDATE FORM ĐĂNG KÝ
-  ---------------------------------
-  Xem đầy đủ yêu cầu trong file de-bai.md.
-  chỉ cần code trong file này. KHÔNG cần sửa index.html / style.css.
-
-  Các id có sẵn trong HTML mà em sẽ cần dùng tới:
-    - Input:        fullname, username, email, phone, password, confirm
-    - Field (cha):   field-fullname, field-username, field-email,
-                      field-phone, field-password, field-confirm
-    - Form:          registerForm
-    - Kết quả:       result
-*/
-
 // ========== BƯỚC 1: Lấy phần tử ==========
-// TODO: Lấy thẻ <form id="registerForm"> và thẻ <div id="result">
-// const form = ...
-// const resultBox = ...
+const form = document.getElementById('registerForm');
+const resultBox = document.getElementById('result');
+
+const fullnameInput = document.getElementById('fullname');
+const usernameInput = document.getElementById('username');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const passwordInput = document.getElementById('password');
+const confirmInput = document.getElementById('confirm');
 
 // ========== BƯỚC 2: Hàm hiển thị lỗi / hết lỗi ==========
-
-// TODO: Viết hàm showError(fieldName, message)
-// - Tìm div cha có id = "field-" + fieldName
-// - Thêm class "error" vào div đó, xoá class "success" (nếu có)
-// - Set nội dung text cho phần tử ".error-msg" bên trong div đó = message
 function showError(fieldName, message) {
-  // code ở đây
+  const field = document.getElementById('field-' + fieldName);
+  field.classList.add('error');
+  field.classList.remove('success');
+  field.querySelector('.error-msg').textContent = message;
 }
 
-// TODO: Viết hàm showSuccess(fieldName)
-// - Tìm div cha có id = "field-" + fieldName
-// - Xoá class "error", thêm class "success"
 function showSuccess(fieldName) {
-  // code ở đây
+  const field = document.getElementById('field-' + fieldName);
+  field.classList.remove('error');
+  field.classList.add('success');
+  field.querySelector('.error-msg').textContent = '';
 }
 
 // ========== BƯỚC 3: Các hàm validate từng ô ==========
-// Mỗi hàm: đọc giá trị input tương ứng, kiểm tra theo quy tắc trong de-bai.md,
-// gọi showError() hoặc showSuccess() phù hợp, và PHẢI return true / false.
-
 function validateFullname() {
-  // TODO
-  // Gợi ý: const value = document.getElementById('fullname').value.trim();
-  return true; // sửa lại cho đúng
+  const value = fullnameInput.value.trim();
+  if (!value) {
+    showError('fullname', 'Họ và tên không được để trống.');
+    return false;
+  }
+  if (value.length < 2) {
+    showError('fullname', 'Họ và tên tối thiểu 2 ký tự.');
+    return false;
+  }
+  showSuccess('fullname');
+  return true;
 }
 
 function validateUsername() {
-  // TODO
-  return true; // sửa lại cho đúng
+  const value = usernameInput.value.trim();
+  if (!value) {
+    showError('username', 'Tên đăng nhập không được để trống.');
+    return false;
+  }
+  if (value.length < 4 || value.length > 16) {
+    showError('username', 'Tên đăng nhập phải từ 4 đến 16 ký tự.');
+    return false;
+  }
+  if (!/^[a-zA-Z0-9_]+$/.test(value)) {
+    showError('username', 'Chỉ gồm chữ, số và dấu gạch dưới.');
+    return false;
+  }
+  showSuccess('username');
+  return true;
 }
 
 function validateEmail() {
-  // TODO
-  return true; // sửa lại cho đúng
+  const value = emailInput.value.trim();
+  if (!value) {
+    showError('email', 'Email không được để trống.');
+    return false;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+    showError('email', 'Vui lòng nhập đúng định dạng email.');
+    return false;
+  }
+  showSuccess('email');
+  return true;
 }
 
 function validatePhone() {
-  // TODO
-  return true; // sửa lại cho đúng
+  const value = phoneInput.value.trim();
+  if (!value) {
+    showError('phone', 'Số điện thoại không được để trống.');
+    return false;
+  }
+  if (!/^0\d{9}$/.test(value)) {
+    showError('phone', 'Phải có đúng 10 chữ số và bắt đầu bằng số 0.');
+    return false;
+  }
+  showSuccess('phone');
+  return true;
 }
 
 function validatePassword() {
-  // TODO
-  return true; // sửa lại cho đúng
+  const value = passwordInput.value;
+  if (!value) {
+    showError('password', 'Mật khẩu không được để trống.');
+    return false;
+  }
+  if (value.length < 8) {
+    showError('password', 'Mật khẩu tối thiểu 8 ký tự.');
+    return false;
+  }
+  if (!/[a-zA-Z]/.test(value) || !/[0-9]/.test(value)) {
+    showError('password', 'Phải có ít nhất 1 chữ cái và 1 chữ số.');
+    return false;
+  }
+  showSuccess('password');
+  return true;
 }
 
 function validateConfirm() {
-  // TODO
-  // Lưu ý: cần lấy giá trị của CẢ 2 ô "password" và "confirm" để so sánh
-  return true; // sửa lại cho đúng
+  const password = passwordInput.value;
+  const confirm = confirmInput.value;
+  if (!confirm) {
+    showError('confirm', 'Xác nhận mật khẩu không được để trống.');
+    return false;
+  }
+  if (confirm !== password) {
+    showError('confirm', 'Mật khẩu xác nhận không khớp.');
+    return false;
+  }
+  showSuccess('confirm');
+  return true;
 }
 
 // ========== BƯỚC 4: Gắn sự kiện blur ==========
-// TODO: Với mỗi input, lắng nghe sự kiện "blur" (mất focus)
-// và gọi hàm validate tương ứng.
-//
-// Gợi ý:
-// document.getElementById('fullname').addEventListener('blur', validateFullname);
-// (làm tương tự cho 5 ô còn lại)
+fullnameInput.addEventListener('blur', validateFullname);
+usernameInput.addEventListener('blur', validateUsername);
+emailInput.addEventListener('blur', validateEmail);
+phoneInput.addEventListener('blur', validatePhone);
+passwordInput.addEventListener('blur', validatePassword);
+confirmInput.addEventListener('blur', validateConfirm);
 
 // ========== BƯỚC 5: Gắn sự kiện submit ==========
-// TODO:
-// 1. Lắng nghe sự kiện "submit" trên form
-// 2. Gọi event.preventDefault() để chặn hành vi mặc định
-// 3. Gọi TẤT CẢ 6 hàm validate (không dùng && liên tiếp — xem lý do trong de-bai.md)
-// 4. Nếu tất cả đều true -> hiện #result với class "show ok" và nội dung phù hợp
-// 5. Nếu có ít nhất 1 false -> hiện #result với class "show fail" và nội dung phù hợp
-//
-// Gợi ý cấu trúc:
-// form.addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   const checks = [ validateFullname(), validateUsername(), ... ];
-//   const isValid = checks.every(Boolean);
-//   ...
-// });
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const checks = [
+    validateFullname(),
+    validateUsername(),
+    validateEmail(),
+    validatePhone(),
+    validatePassword(),
+    validateConfirm()
+  ];
+  
+  const isValid = checks.every(Boolean);
+  
+  resultBox.className = ''; // Xoá các class cũ (nếu có)
+  
+  if (isValid) {
+    resultBox.classList.add('show', 'ok');
+    resultBox.textContent = '✔ Hợp lệ! Dữ liệu sẵn sàng để gửi lên server.';
+  } else {
+    resultBox.classList.add('show', 'fail');
+    resultBox.textContent = '✘ Vui lòng sửa các lỗi được đánh dấu đỏ ở trên';
+  }
+});
