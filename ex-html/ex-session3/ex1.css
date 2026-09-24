@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    color: #1a1a2e;
+    font-size: 2rem;
+}
+
+p{
+    color: #555;
+    line-height: 1.6;
+}
+
+.note{
+    background-color: #fff3cd;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.tag{
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin: 4px;
+}
+
+.tag.highlight{
+    background-color: #e53935;
+    color: white;
+}
+
+#card{
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 24px;
+    max-width: 480px;
+}

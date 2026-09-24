@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background: rgb(255, 255, 199);
+
+}
+
+.course-box{
+    background: #fff;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 100px;
+}
+
+.course-box h2{
+    text-align: center;
+    color: red;
+    text-transform: uppercase;
+}
+
+.subtitle{
+    text-align: center;
+    color: gray;
+    font-style: italic;
+}
+
+.description{
+    color: rgb(13, 0, 255);
+    line-height: 1.5;
+}
+
+.note{
+    background: #ffe0e0;
+    border: 2px solid red;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+}

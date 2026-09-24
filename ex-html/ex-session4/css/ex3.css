@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background: #ffffdc;
+}
+
+.discount-box{
+    background: white;
+    border: 2px solid orange;
+    border-radius: 16px;
+    padding: 10px;
+    margin: 100px; 
+}
+
+.discount-box h2{
+    color: #ffa600;
+    text-align: center;
+    font-size: 50px;
+}
+
+.main-text{
+    text-align: center;
+    color: #6c6c6c;
+}
+
+.discount-info{
+    background: #ffffdc;
+    border: 2px dashed orange;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.discount-info p{
+    font-weight: bold;
+}
+
+.warning{
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+}

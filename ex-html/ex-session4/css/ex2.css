@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background: #e6e5e5;
+}
+
+.event-card{
+    background: #b5f0ff;
+    border: 2px solid #00a5ce;
+    border-radius: 16px;
+    padding: 10px;
+    margin: 100px;
+}
+
+.event-card h2{
+    color: #006c87;
+    text-align: center;
+    font-size: 30px;
+}
+
+.time{
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.content{
+    color: #494949;
+    line-height: 1.8;
+}
+
+.status{
+    background: #000;
+    background: #006c87;
+    color: white;
+    text-align: center;
+    border-radius: 99px;
+    padding: 3px;
+}
+

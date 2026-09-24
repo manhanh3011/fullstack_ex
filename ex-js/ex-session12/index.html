@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Buổi 12</title>
+</head>
+<body>
+    <script>
+        //Bài 1 : Kiểm tra số chẵn lẻ và dấu
+        // let n = 10;
+        // if(n === 0){
+        //     console.log(`${n} là số 0`);
+        // }else if(n > 0 && n % 2 === 0){
+        //     console.log(`${n} là số chẵn`);
+        // }else if(n > 0 && n % 2 !== 0){
+        //     console.log(`${n} là số lẻ`);
+        // }else if( n < 0 && n % 2 === 0){
+        //     console.log(`${n} là số âm chẵn`);          
+        // }else {
+        //     console.log(`${n} là số âm lẻ`);                  
+        // }
+
+        //Bài 2 : Đoán giá trị Truthy/Falsy
+        let a = 0;
+        let b = 1;
+        let c = "";
+        let d = "hello";
+        let e = null;
+        let f = undefined;
+        let g = NaN;
+        let h = " ";
+
+        if(a){
+            console.log("a là truthy");
+        }else{
+            console.log("a là falsy");
+        }
+
+        if(b){
+            console.log("b là truthy");
+        }else{
+            console.log("b là falsy");
+        }
+
+         if(c){
+            console.log("c là truthy");
+        }else{
+            console.log("c là falsy");
+        }
+
+         if(d){
+            console.log("d là truthy");
+        }else{
+            console.log("d là falsy");
+        }
+
+         if(e){
+            console.log("e là truthy");
+        }else{
+            console.log("e là falsy");
+        }
+
+         if(f){
+            console.log("f là truthy");
+        }else{
+            console.log("f là falsy");
+        }
+
+         if(g){
+            console.log("g là truthy");
+        }else{
+            console.log("g là falsy");
+        }
+
+         if(h){
+            console.log("h là truthy");
+        }else{
+            console.log("h là falsy");
+        }
+
+        //Bài 3: Phân loại điểm thi
+        let score = "0";
+        if(typeof score !== "number"){
+            console.log(`${score} là điểm không hợp lệ`); 
+        }else if(!score){
+            console.log('Chưa có điểm');
+        }else if(score >= 9 && score <= 10){
+            console.log(`${score} là điểm Xuất sắc`);
+        }else if(score >= 7 && score < 9){
+            console.log(`${score} là điểm Giỏi`);
+        }else if(score >= 5 && score < 7){
+            console.log(`${score} là điểm Trung bình`);
+        }else if(score >= 0 && score < 5){
+            console.log(`${score} là điểm Yếu`);
+        }
+
+        //Bài 4: FizzBuzz
+        for(let i = 1; i <= 50; i++ ){
+            if(i % 3 === 0 && i % 5 === 0){
+                console.log('FizzBuzz');       
+            }else if(i % 3 === 0){
+                console.log('Fizz');       
+            }else if(i % 5 === 0){
+                console.log('Buzz');       
+            }else{
+                console.log(`${i}`);             
+            }          
+        }
+
+        //Bài 5: Kiểm tra số nguyên tố
+        let isPrime = true;
+        let n = 1;
+
+        if(n % 1 !== 0 || n <= 1){
+            isPrime = false;
+        }else{
+            for(let i = 2; i < n; i++){
+                if(n % i === 0){
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if(isPrime){
+            console.log(`${n} là số nguyên tố`);
+        }else{
+            console.log(`${n} không phải số nguyên tố`);
+        }
+
+    </script>
+</body>
+</html>
