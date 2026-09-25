@@ -31,7 +31,7 @@ async function login(username, password) {
   });
 
   if (!res.ok) {
-    throw new Error('Sai tài khoản hoặc mật khẩu');
+    throw new Error('Tài khoản hoặc mật khẩu không hợp lệ');
   }
 
   const data = await res.json();
@@ -50,6 +50,12 @@ loginForm.addEventListener('submit', async (e) => {
     
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
+    
+    if (!username || !password) {
+        errorMsg.textContent = 'Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!';
+        errorMsg.classList.remove('hidden');
+        return;
+    }
     
     // Tạo trạng thái loading
     const btn = loginForm.querySelector('button[type="submit"]');
