@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.ex-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.ex-container h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+BÃ€I 1: Hamburger Menu to Close Button
+
+.ex1-toggle {
+    display: none; /* áº¨n checkbox Ä‘i */
+}
+
+.ex1-menu-btn {
+    /* Táº¡o hÃ¬nh khá»‘i vuÃ´ng bo gÃ³c cho nÃºt */
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    
+    /* CÄƒn giá»¯a cÃ¡c thanh ngang */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Khoáº£ng cÃ¡ch giá»¯a 3 thanh */
+    
+    margin: 0 auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 
+  Hiá»‡u á»©ng click chuá»™t (sá»­ dá»¥ng checkbox hack) 
+*/
+
+/* Äá»•i mÃ u ná»n khi click hoáº·c hover (tÃ¹y chá»n) */
+.ex1-menu-btn:hover {
+    background-color: #e4e4e4;
+}
+
+/* Äá»‹nh dáº¡ng chung cho 3 thanh ngang */
+.ex1-bar {
+    width: 32px;
+    height: 4px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+}
+
+/* 
+  Hiá»‡u á»©ng khi click (checkbox Ä‘Æ°á»£c checked):
+  Khoáº£ng cÃ¡ch giá»¯a cÃ¡c thanh lÃ  8px, Ä‘á»™ dÃ y lÃ  4px 
+  => Khoáº£ng cÃ¡ch tá»« tÃ¢m thanh 1 Ä‘áº¿n tÃ¢m thanh 2 lÃ : (4/2) + 8 + (4/2) = 12px
+*/
+
+/* Thanh sá»‘ 1: Dá»‹ch xuá»‘ng 12px Ä‘á»ƒ trÃ¹ng tÃ¢m thanh 2, sau Ä‘Ã³ xoay 45 Ä‘á»™ */
+.ex1-toggle:checked ~ .ex1-menu-btn .ex1-bar:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+}
+
+/* Thanh sá»‘ 2: Má» Ä‘i */
+.ex1-toggle:checked ~ .ex1-menu-btn .ex1-bar:nth-child(2) {
+    opacity: 0;
+}
+
+/* Thanh sá»‘ 3: Dá»‹ch lÃªn 12px Ä‘á»ƒ trÃ¹ng tÃ¢m thanh 2, sau Ä‘Ã³ xoay ngÆ°á»£c láº¡i -45 Ä‘á»™ */
+.ex1-toggle:checked ~ .ex1-menu-btn .ex1-bar:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+/* =========================================
+   BÀI 2: Skeleton Shimmer Loading
+   ========================================= */
+
+.ex-guide {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.ex2-card {
+    width: 320px;
+    margin: 30px auto;
+    /* padding: 20px; (Xóa đi để ảnh sát viền) */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+    min-height: 280px;
+    overflow: hidden; /* Cắt phần viền ảnh tràn ra ngoài góc bo tròn */
+}
+
+/* Lớp Content (sẽ mờ đi lúc đầu và hiện ra khi hover) */
+.ex2-content {
+    opacity: 0;
+    visibility: hidden;
+    /* Thêm delay 0.2s để tránh hiệu ứng xảy ra ngay lập tức khi vô tình lướt qua */
+    transition: opacity 0.4s ease 0.2s, visibility 0.4s ease 0.2s;
+}
+
+.ex2-image {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, #d3cce3 0%, #e9e4f0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.ex2-image i {
+    font-size: 50px;
+    color: #4CAF50;
+}
+
+.ex2-title {
+    padding: 0 20px; /* Bù padding cho text */
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ex2-desc {
+    padding: 0 20px 20px 20px; /* Bù padding cho text */
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Lớp Skeleton (sẽ hiện lúc đầu và mờ đi khi hover) */
+.ex2-skeleton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    /* Thêm delay 0.2s */
+    transition: opacity 0.4s ease 0.2s, visibility 0.4s ease 0.2s;
+}
+
+.skeleton-shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(90deg, #f0f0f0 0px, #f8f8f8 40px, #f0f0f0 80px);
+    background-size: 600px;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.ex2-skeleton-img {
+    height: 160px;
+    margin-bottom: 15px;
+}
+
+.ex2-skeleton-title {
+    height: 28px;
+    width: 50%;
+    margin: 0 20px 15px 20px; /* Bù padding */
+}
+
+.ex2-skeleton-line {
+    height: 16px;
+    width: calc(100% - 40px); /* Đảm bảo có lề 2 bên 20px */
+    margin: 0 20px 10px 20px; /* Bù padding */
+}
+
+.ex2-skeleton-line.short {
+    width: calc(70% - 40px);
+}
+
+/* Hi?u ?ng d?o ngu?c khi Hover */
+.ex2-card:hover .ex2-skeleton {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ex2-card:hover .ex2-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   BÀI 3: FLIP CARD 3D
+   ========================================= */
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+/* Mở rộng container để đủ chỗ cho 3 cards trên 1 hàng */
+.ex3-container {
+    max-width: 960px;
+}
+
+/* Toggle Checkbox */
+.ex3-toggle {
+    display: none;
+}
+
+/* Nút bấm hiển thị cards */
+.ex3-toggle-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.ex3-toggle-btn:hover {
+    background-color: #555;
+}
+
+/* Khung chứa các thẻ cards - ẩn đi mặc định, chỉ hiện khi click */
+.ex3-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+/* Hiển thị card khi check */
+.ex3-toggle:checked ~ .ex3-cards-wrapper {
+    opacity: 1;
+    visibility: visible;
+    max-height: 1000px;
+}
+
+/* Thay đổi chữ nút khi check (không bắt buộc nhưng UX tốt hơn) */
+.ex3-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.ex3-toggle:checked ~ .ex3-toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* 
+   ================
+   3D FLIP EFFECT
+   ================
+*/
+.ex3-card {
+    background-color: transparent;
+    width: 250px;
+    height: 280px; /* Giảm chiều cao của card xuống */
+    perspective: 1000px; /* Tạo không gian 3D */
+    cursor: pointer;
+}
+
+.ex3-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Giữ trạng thái 3D cho thẻ con */
+}
+
+/* Xoay 180 độ khi hover vào vùng card */
+.ex3-card:hover .ex3-card-inner {
+    transform: rotateY(180deg);
+}
+
+.ex3-card-front,
+.ex3-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Dành cho Safari */
+    backface-visibility: hidden; /* Ẩn mặt sau khi lật */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Mặt sau mặc định đã bị lật ngược 180 độ */
+.ex3-card-back {
+    transform: rotateY(180deg);
+    background-color: #fcfcfc;
+}
+
+/* STYLE CHI TIẾT TRONG CARD */
+.ex3-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.ex3-icon.green {
+    background-color: #e8f5e9;
+    color: #4CAF50;
+}
+
+.ex3-icon.pink {
+    background-color: #fce4ec;
+    color: #e91e63;
+}
+
+.ex3-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ex3-subtitle {
+    font-size: 14px;
+    color: #999;
+}
+
+.ex3-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.ex3-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+/* Badge (Nhãn NEW) */
+.ex3-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff4757;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+

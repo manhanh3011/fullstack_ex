@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition - Buổi 7</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="ex-container">
+        <h2>Bài 1: Hamburger Menu to Close Button</h2>
+
+        <input type="checkbox" id="ex1-toggle" class="ex1-toggle" hidden>
+        <label for="ex1-toggle" class="ex1-menu-btn">
+            <span class="ex1-bar"></span>
+            <span class="ex1-bar"></span>
+            <span class="ex1-bar"></span>
+        </label>
+    </div>
+
+    <div class="ex-container">
+        <h2>Bài 2 - Skeleton Shimmer</h2>
+        <p class="ex-guide">Hover vào card để xem hiệu ứng load</p>
+        
+        <div class="ex2-card">
+            <!-- Lớp Content (Sẽ hiện ra khi hover) -->
+            <div class="ex2-content">
+                <div class="ex2-image">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h3 class="ex2-title">Quang Cảnh</h3>
+                <p class="ex2-desc">Cây cảnh nhiệt đới dễ chăm, lá lớn đặc trưng, hợp không gian trong nhà.</p>
+            </div>
+            
+            <!-- Lớp Skeleton (Hiển thị ban đầu) -->
+            <div class="ex2-skeleton">
+                <div class="ex2-skeleton-img skeleton-shimmer"></div>
+                <div class="ex2-skeleton-title skeleton-shimmer"></div>
+                <div class="ex2-skeleton-line skeleton-shimmer"></div>
+                <div class="ex2-skeleton-line skeleton-shimmer short"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BÀI 3: FLIP CARD 3D -->
+    <div class="ex-container ex3-container">
+        <h2>Bài 3 - Flip Card 3D</h2>
+        
+        <input type="checkbox" id="ex3-toggle" class="ex3-toggle">
+        <label for="ex3-toggle" class="ex3-toggle-btn">Hiển thị cards <i class="fa-solid fa-chevron-down" style="margin-left: 8px;"></i></label>
+        
+        <p class="ex-guide mt-20">Hover vào từng card để lật 3D</p>
+        
+        <div class="ex3-cards-wrapper">
+            <div class="ex3-card">
+                <div class="ex3-card-inner">
+                    <div class="ex3-card-front">
+                        <div class="ex3-icon green"><i class="fa-solid fa-seedling"></i></div>
+                        <h3 class="ex3-title">Cactus Mini</h3>
+                        <p class="ex3-subtitle">Hover để xem chi tiết</p>
+                    </div>
+
+                    <div class="ex3-card-back">
+                        <div class="ex3-icon green"><i class="fa-solid fa-seedling"></i></div>
+                        <p class="ex3-desc">Thân mọng nước, chịu hạn tốt, phù hợp trang trí bàn làm việc.</p>
+                        <p class="ex3-price">80.000 đ</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ex3-card">
+                <div class="ex3-card-inner">
+                    <div class="ex3-card-front">
+                        <div class="ex3-icon green"><i class="fa-solid fa-leaf"></i></div>
+                        <h3 class="ex3-title">Pothos Golden</h3>
+                        <p class="ex3-subtitle">Hover để xem chi tiết</p>
+                    </div>
+
+                    <div class="ex3-card-back">
+                        <div class="ex3-icon green"><i class="fa-solid fa-leaf"></i></div>
+                        <p class="ex3-desc">Lọc giàn, lọc không khí, sống tốt trong bóng râm.</p>
+                        <p class="ex3-price">120.000 đ</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ex3-card">
+                <div class="ex3-card-inner">
+                    <div class="ex3-card-front">
+                        <span class="ex3-badge">NEW</span>
+                        <div class="ex3-icon pink"><i class="fa-solid fa-fan"></i></div> 
+                        <h3 class="ex3-title">Peace Lily</h3>
+                        <p class="ex3-subtitle">Hover để xem chi tiết</p>
+                    </div>
+                    <div class="ex3-card-back">
+                        <div class="ex3-icon pink"><i class="fa-solid fa-fan"></i></div>
+                        <p class="ex3-desc">Hoa trắng thanh lịch, ưa bóng, hợp góc đọc sách.</p>
+                        <p class="ex3-price">200.000 đ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
