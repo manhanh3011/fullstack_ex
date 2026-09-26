@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS - Buổi 9</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+    <section class="bg-[#043873] relative overflow-hidden flex flex-col">
+        
+        <div class="absolute inset-0 z-0">
+            <img src="../img/ss9-Element.png" alt="Background Element" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="relative z-10 w-full max-w-[1480px] mx-auto flex flex-col flex-1 px-4 xl:px-0">
+            
+            <header class="flex items-center justify-between py-[16px] h-[92px] w-full">
+                <div class="flex items-center gap-2">
+                    <img src="../img/ss9-logo.png" alt="Whitepace Icon" class="h-8">
+                    <span class="text-white font-bold text-[28px]">whitepace</span>
+                </div>
+
+                <div class="flex items-center gap-[60px]">
+                    <nav>
+                        <ul class="flex items-center gap-8 text-white font-medium text-[18px]">
+                            <li>
+                                <a href="#" class="flex items-center gap-2 hover:text-gray-300">
+                                    Products <i class="fa-solid fa-angle-down text-sm"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-2 hover:text-gray-300">
+                                    Solutions <i class="fa-solid fa-angle-down text-sm"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-2 hover:text-gray-300">
+                                    Resources <i class="fa-solid fa-angle-down text-sm"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-2 hover:text-gray-300">
+                                    Pricing <i class="fa-solid fa-angle-down text-sm"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="flex items-center gap-6">
+                        <a href="#" class="bg-[#FFE492] text-[#043873] px-10 py-4 rounded-lg font-medium text-[18px] hover:bg-yellow-300 leading-[23px]">
+                            Login
+                        </a>
+                        <a href="#" class="bg-[#4F9CF9] text-white px-6 py-4 rounded-lg font-medium text-[18px] flex items-center gap-2 hover:bg-blue-500 leading-[23px]">
+                            Try Whitepace free <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 flex items-center justify-between w-full mt-[140px] pb-[140px]">
+                
+                <div class="max-w-[656px]">
+                    <h1 class="text-[64px] font-bold text-white leading-[1.2] mb-6">
+                        Get More Done with whitepace
+                    </h1>
+                    <p class="text-[18px] font-normal text-white leading-[30px] mb-[60px]">
+                        Project management software that enables your teams to collaborate, plan, analyze and manage everyday tasks
+                    </p>
+                    <a href="#" class="bg-[#4F9CF9] text-white px-8 py-5 rounded-lg font-medium text-[18px] flex items-center gap-2 w-fit hover:bg-blue-500">
+                        Try Whitepace free <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="w-[824px] h-[549px] bg-[#C4DEFD] flex-shrink-0"></div>
+                
+            </main>
+
+        </div>
+    </section>
+
+    <section class="bg-white w-full relative overflow-hidden">
+        <img src="../img/ss9-bg-pm.png" alt="" class="absolute left-[-20px] top-[150px] z-0">
+        
+        <div class="relative z-10 w-full max-w-[1480px] mx-auto px-4 xl:px-0 py-[140px] flex items-center justify-between">
+            <div class="max-w-[656px]">
+                <h1 class="text-[64px] font-bold text-[#212529] leading-[1.2] mb-6">
+                    Project<br>
+                    <span class="relative z-10">
+                        Management
+                        <img src="../img/ss9-highlight.png" alt="" class="absolute left-0 bottom-[-8px] w-[600px] h-[65px] max-w-none z-[-3]">
+                    </span>
+                </h1>
+                <p class="text-[18px] font-normal text-[#212529] leading-[30px] mb-[60px]">
+                    Images, videos, PDFs and audio files are supported. Create math expressions and diagrams directly from the app. Take photos with the mobile app and save them to a note.
+                </p>
+                <a href="#" class="bg-[#4F9CF9] text-white px-8 py-5 rounded-lg font-medium text-[18px] flex items-center gap-2 w-fit hover:bg-blue-500">
+                    Get Started <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="w-[748px] h-[547px] bg-[#C4DEFD] flex-shrink-0"></div>
+        </div>
+    </section>
+
+    <section class="bg-white w-full relative">
+        <div class="relative z-10 w-full max-w-[1480px] mx-auto px-4 xl:px-0 pb-[140px] flex items-center justify-between gap-[100px]">
+            <div class="w-[710px] flex-shrink-0 flex items-center justify-center">
+                <img src="../img/ss9-Work Together.png" alt="Work together diagram" class="w-full object-contain">
+            </div>
+            
+            <div class="max-w-[656px]">
+                <h1 class="text-[64px] font-bold text-[#212529] leading-[1.2] mb-6">
+                    Work 
+                    <span class="relative z-10">
+                        together
+                        <img src="../img/ss9-highlight.png" alt="" class="absolute left-0 bottom-[-2px] w-[400px] h-[38px] max-w-none z-[-1]">
+                    </span>
+                </h1>
+                <p class="text-[18px] font-normal text-[#212529] leading-[30px] mb-[60px]">
+                    With whitepace, share your notes with your colleagues and collaborate on them. You can also publish a note to the internet and share the URL with others.
+                </p>
+                <a href="#" class="bg-[#4F9CF9] text-white px-8 py-5 rounded-lg font-medium text-[18px] flex items-center gap-2 w-fit hover:bg-blue-500">
+                    Try it now <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#043873] w-full relative">
+        <div class="relative z-10 w-full max-w-[1480px] mx-auto px-4 xl:px-0 py-[140px] flex items-center justify-between gap-[100px]">
+            <div class="max-w-[656px]">
+                <h1 class="text-[64px] font-bold text-white leading-[1.2] mb-6">
+                    Use as 
+                    <span class="relative z-10">
+                        Extension
+                        <img src="../img/ss9-highlight.png" alt="" class="absolute left-0 bottom-[-4px] w-[460px] h-[46px] max-w-none z-[-1]">
+                    </span>
+                </h1>
+                <p class="text-[18px] font-normal text-white leading-[30px] mb-[60px]">
+                    Use the web clipper extension, available on Chrome and Firefox, to save web pages or take screenshots as notes.
+                </p>
+                <a href="#" class="bg-[#4F9CF9] text-white px-8 py-[18px] rounded-lg font-medium text-[18px] flex items-center gap-2 w-fit hover:bg-blue-500">
+                    Let's Go <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="w-[686px] h-[480px] bg-[#C4DEFD] flex-shrink-0"></div>
+        </div>
+    </section>
+
+</body>
+</html>
